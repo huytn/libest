@@ -1,0 +1,41 @@
+diff --git a/src/est/est_client.c b/src/est/est_client.c
+index 8dff9d9..f8559ea 100644
+--- a/src/est/est_client.c
++++ b/src/est/est_client.c
+@@ -4487,7 +4487,7 @@ EST_CTX *est_client_init (unsigned char *ca_chain, int ca_chain_len,
+         len = (int) strnlen_s((char *)ca_chain, EST_CA_MAX);
+         if (len != ca_chain_len) {
+             EST_LOG_ERR("Length of ca_chain doesn't match passed ca_chain_len");
+-            return NULL;
++            //return NULL;
+         }
+     }
+     
+diff --git a/src/est/est_locl.h b/src/est/est_locl.h
+index 62dcbea..1ce8632 100644
+--- a/src/est/est_locl.h
++++ b/src/est/est_locl.h
+@@ -590,7 +590,7 @@ typedef struct est_oid_list {
+ /*
+  * Index used to link the EST Ctx into the SSL structures
+  */
+-int e_ctx_ssl_exdata_index;
++//int e_ctx_ssl_exdata_index;
+ 
+ LIBEST_TEST_API void est_log (EST_LOG_LEVEL lvl, char *format, ...);
+ LIBEST_TEST_API void est_log_backtrace (void);
+
+diff --git a/src/est/est.h b/src/est/est.h
+index ffbe85f..656e25c 100644
+--- a/src/est/est.h
++++ b/src/est/est.h
+@@ -42,7 +42,8 @@ extern "C" {
+ #define EST_PORTNUM_LEN          (sizeof(int))
+ #define EST_MAX_SERVERNAME_AND_PORT_LEN    (EST_MAX_SERVERNAME_LEN+EST_PORTNUM_LEN)
+ #define EST_MIN_CLIENT_CERT_LEN  (128)
+-#define EST_MIN_CLIENT_PKEY_LEN  (256)
++//#define EST_MIN_CLIENT_PKEY_LEN  (256)
++#define EST_MIN_CLIENT_PKEY_LEN  (128)
+ #define EST_MAX_CLIENT_CERT_LEN  (4096)
+ #define EST_MAX_CLIENT_PKEY_LEN  (8192)
+ #define EST_MAX_PATH_SEGMENT_LEN (128)
